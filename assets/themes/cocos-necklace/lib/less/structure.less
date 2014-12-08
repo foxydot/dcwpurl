@@ -4,17 +4,22 @@ Structure and Layout
 
 /* Site Containers
 --------------------------------------------- */
+.site-container{    
+    background: url("../images/banner-bg.jpg") no-repeat scroll center top rgba(0, 0, 0, 0);
+    }
+    
+.container{
+  max-width: none;
+}
 
-.site-inner,
 .wrap {
   margin: 0 auto;
-  max-width: 1140px;
-}
+  max-width: 960px;
+  }
 
 .site-inner {
   clear: both;
-  padding-top: 40px;
-  padding-top: 4rem;
+  padding-top: 0;
 }
 
 /* Column Widths and Positions
@@ -25,7 +30,7 @@ Structure and Layout
 .content-sidebar-sidebar .content-sidebar-wrap,
 .sidebar-content-sidebar .content-sidebar-wrap,
 .sidebar-sidebar-content .content-sidebar-wrap {
-  width: 920px;
+  /*width: 920px;*/
 }
 
 .content-sidebar-sidebar .content-sidebar-wrap {
@@ -39,9 +44,11 @@ Structure and Layout
 
 /* Content */
 
-.content {
+main.content {
   float: right;
-  width: 740px;
+  margin-bottom: 40px;
+  margin-bottom: 4rem;
+  /*width: 740px;*/
 }
 
 .content-sidebar .content,
@@ -53,7 +60,7 @@ Structure and Layout
 .content-sidebar-sidebar .content,
 .sidebar-content-sidebar .content,
 .sidebar-sidebar-content .content {
-  width: 520px;
+  /*width: 520px;*/
 }
 
 .full-width-content .content {
@@ -64,7 +71,6 @@ Structure and Layout
 
 .sidebar-primary {
   float: right;
-  width: 360px;
 }
 
 .sidebar-content .sidebar-primary,
@@ -76,7 +82,6 @@ Structure and Layout
 
 .sidebar-secondary {
   float: left;
-  width: 180px;
 }
 
 .content-sidebar-sidebar .sidebar-secondary {

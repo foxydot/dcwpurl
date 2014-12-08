@@ -1,4 +1,7 @@
 <?php
+function msdlab_return_false(){
+    return false;
+}
 /*** HEADER ***/
 /**
  * Add apple touch icons
@@ -11,6 +14,7 @@ function msdlab_add_apple_touch_icons(){
     <link href="'.get_stylesheet_directory_uri().'/lib/img/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152" />
     <link rel="shortcut icon" href="'.get_stylesheet_directory_uri().'/lib/img/favicon.ico" type="image/x-icon">
     <link rel="icon" href="'.get_stylesheet_directory_uri().'/lib/img/favicon.ico" type="image/x-icon">
+    <meta name="format-detection" content="telephone=no">
     ';
     print $ret;
 }
@@ -91,12 +95,25 @@ function msdlab_page_banner(){
 
 /*** SIDEBARS ***/
 function msdlab_add_extra_theme_sidebars(){
+    //* Remove the header right widget area
+    //unregister_sidebar( 'header-right' );
+    genesis_register_sidebar(array(
+    'name' => 'Pre-header Sidebar',
+    'description' => 'Widget above the logo/nav header',
+    'id' => 'pre-header'
+            ));
+    genesis_register_sidebar(array(
+    'name' => 'Page Footer Widget',
+    'description' => 'Widget on page footer',
+    'id' => 'msdlab_page_footer'
+            ));
     genesis_register_sidebar(array(
     'name' => 'Blog Sidebar',
     'description' => 'Widgets on the Blog Pages',
     'id' => 'blog'
             ));
 }
+
 function msdlab_do_blog_sidebar(){
     if(is_active_sidebar('blog')){
         dynamic_sidebar('blog');
@@ -121,12 +138,44 @@ function msdlab_ro_layout_logic() {
 /*** CONTENT ***/
 
 /**
+ * Move titles
+ */
+function msdlab_do_title_area(){
+    print '<div id="page-title-area" class="page-title-area">';
+    print '<div class="wrap">';
+    do_action('msdlab_title_area');
+    print '</div>';
+    print '</div>';
+}
+
+function msdlab_do_section_title(){
+    if(is_page()){
+        global $post;
+        if(get_section_title()!=$post->post_title){
+            add_action('genesis_before_entry','genesis_do_post_title');
+        }
+        print '<h2 class="section-title">';
+        print get_section_title();
+        print '</h2>';
+    } elseif(is_single()) {
+        genesis_do_post_title();
+    }
+}
+
+/**
  * Customize Breadcrumb output
  */
 function msdlab_breadcrumb_args($args) {
     $args['labels']['prefix'] = ''; //marks the spot
     $args['sep'] = ' > ';
     return $args;
+}
+function sp_post_info_filter($post_info) {
+    $post_info = 'Posted [post_date]';
+    return $post_info;
+}
+function sp_read_more_link() {
+    return '&hellip;&nbsp;<a class="more-link" href="' . get_permalink() . '">Read More <i class="fa fa-angle-right"></i></a>';
 }
 function msdlab_older_link_text() {
         $olderlink = 'Older Posts &raquo;';
@@ -140,120 +189,173 @@ function msdlab_newer_link_text() {
 /*** FOOTER ***/
 
 /**
- * Footer replacement with MSDSocial support
- */
-function msdlab_do_social_footer(){
-    global $msd_social;
-    if(has_nav_menu('footer_menu')){$footer_menu .= wp_nav_menu( array( 'theme_location' => 'footer_menu','container_class' => 'ftr-menu ftr-links','echo' => FALSE ) );}
-    
-    if($msd_social){
-        $address = '<span itemprop="name">'.$msd_social->get_bizname().'</span> | <span itemprop="streetAddress">'.get_option('msdsocial_street').'</span>, <span itemprop="streetAddress">'.get_option('msdsocial_street2').'</span> | <span itemprop="addressLocality">'.get_option('msdsocial_city').'</span>, <span itemprop="addressRegion">'.get_option('msdsocial_state').'</span> <span itemprop="postalCode">'.get_option('msdsocial_zip').'</span> | '.$msd_social->get_digits();
-        $copyright .= '&copy; Copyright '.date('Y').' '.$msd_social->get_bizname().' &middot; All Rights Reserved';
-    } else {
-        $copyright .= '&copy; Copyright '.date('Y').' '.get_bloginfo('name').' &middot; All Rights Reserved ';
-    }
-    
-    print '<div id="footer-left" class="footer-left social">'.$address.'</div>';
-    print '<div id="footer-right" class="footer-right menu">'.$footer_menu.'</div>';
-}
-
-
-/**
- * Menu area for above footer treatment
+ * Menu area for footer menus
  */
 register_nav_menus( array(
     'footer_menu' => 'Footer Menu'
 ) );
-/*** SITEMAP ***/
+function msdlab_do_footer_menu(){
+    if(has_nav_menu('footer_menu')){$footer_menu .= wp_nav_menu( array( 'theme_location' => 'footer_menu','container_class' => 'ftr-menu ftr-links','echo' => FALSE, 'walker' => new Description_Walker ) );}
+    print '<div id="footer_menu" class="footer-menu"><div class="wrap">'.$footer_menu.'</div></div>';
+}
+
 /**
- * Retrieve or display list of pages in list (li) format.
+ * Create HTML list of nav menu items.
+ * Replacement for the native Walker, using the description.
  *
- * @since 1.5.0
- *
- * @param array|string $args Optional. Override default arguments.
- * @return string HTML content, if not displaying.
+ * @see    http://wordpress.stackexchange.com/q/14037/
+ * @author toscho, http://toscho.de
  */
-function msdlab_list_pages_for_sitemap($args = '') {
-    $defaults = array(
-        'depth' => 0, 'show_date' => '',
-        'date_format' => get_option('date_format'),
-        'child_of' => 0, 'exclude' => '',
-        'title_li' => __('Pages'), 'echo' => 1,
-        'authors' => '', 'sort_column' => 'menu_order, post_title',
-        'link_before' => '', 'link_after' => '', 'walker' => '',
-    );
-
-    $r = wp_parse_args( $args, $defaults );
-    extract( $r, EXTR_SKIP );
-
-    $output = '';
-    $current_page = 0;
-    
-    /*$r['meta_query'] = array(
-        array(
-            'key'     => '_yoast_wpseo_meta-robots-noindex',
-            'value'   => 1,
-            'compare' => '!=',
-        ),
-    );*/
-
-    // sanitize, mostly to keep spaces out
-    $r['exclude'] = preg_replace('/[^0-9,]/', '', $r['exclude']);
-
-    // Allow plugins to filter an array of excluded pages (but don't put a nullstring into the array)
-    $exclude_array = ( $r['exclude'] ) ? explode(',', $r['exclude']) : array();
-    $r['exclude'] = implode( ',', apply_filters('wp_list_pages_excludes', $exclude_array) );
-
-    // Query pages.
-    $r['hierarchical'] = 0;
-    $pages = get_pages($r);
-    if ( !empty($pages) ) {
-        if ( $r['title_li'] )
-            $output .= '<li class="pagenav">' . $r['title_li'] . '<ul>';
-
-        global $wp_query;
-        if ( is_page() || is_attachment() || $wp_query->is_posts_page )
-            $current_page = $wp_query->get_queried_object_id();
-        $output .= msdlab_walk_page_tree($pages, $r['depth'], $current_page, $r);
-
-        if ( $r['title_li'] )
-            $output .= '</ul></li>';
+class Description_Walker extends Walker_Nav_Menu
+{
+        /**
+     * Starts the list before the elements are added.
+     *
+     * @see Walker::start_lvl()
+     *
+     * @since 3.0.0
+     *
+     * @param string $output Passed by reference. Used to append additional content.
+     * @param int    $depth  Depth of menu item. Used for padding.
+     * @param array  $args   An array of arguments. @see wp_nav_menu()
+     */
+    function start_lvl( &$output, $depth = 0, $args = array() ) {
+        $indent = str_repeat("\t", $depth);
+        $output .= "\n$indent<ul class=\"sub-menu\">\n";
     }
 
-    $output = apply_filters('wp_list_pages', $output, $r);
-
-    if ( $r['echo'] )
-        echo $output;
-    else
-        return $output;
-}
-
-function msdlab_walk_page_tree($pages, $depth, $current_page, $r) {
-    if ( empty($r['walker']) )
-        $walker = new Walker_Page;
-    else
-        $walker = $r['walker'];
-
-    foreach ( (array) $pages as $k=>$page ) {
-        if($x = get_metadata('post',$page->ID,'_yoast_wpseo_meta-robots-noindex')){
-            if($x = 1){
-                unset($pages[$k]);
-                continue;
-            }
+    /**
+     * Ends the list of after the elements are added.
+     *
+     * @see Walker::end_lvl()
+     *
+     * @since 3.0.0
+     *
+     * @param string $output Passed by reference. Used to append additional content.
+     * @param int    $depth  Depth of menu item. Used for padding.
+     * @param array  $args   An array of arguments. @see wp_nav_menu()
+     */
+    function end_lvl( &$output, $depth = 0, $args = array() ) {
+        $indent = str_repeat("\t", $depth);
+        $output .= "$indent</ul>\n";
+        if($depth==0){
+            $output .= "$indent</div>\n";
         }
-        if ( $page->post_parent )
-            $r['pages_with_children'][ $page->post_parent ] = true;
     }
+     /**
+     * Start the element output.
+     *
+     * @param  string $output Passed by reference. Used to append additional content.
+     * @param  object $item   Menu item data object.
+     * @param  int $depth     Depth of menu item. May be used for padding.
+     * @param  array $args    Additional strings.
+     * @return void
+     */
+    function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 )
+    {
+        $classes     = empty ( $item->classes ) ? array () : (array) $item->classes;
 
-    $args = array($pages, $depth, $r, $current_page);
-    return call_user_func_array(array($walker, 'walk'), $args);
+        $class_names = join(
+            ' '
+        ,   apply_filters(
+                'nav_menu_css_class'
+            ,   array_filter( $classes ), $item
+            )
+        );
+
+        ! empty ( $class_names )
+            and $class_names = ' class="'. esc_attr( $class_names ) . '"';
+
+        $output .= "<li id='menu-item-$item->ID' $class_names>";
+
+        $attributes  = '';
+
+        ! empty( $item->attr_title )
+            and $attributes .= ' title="'  . esc_attr( $item->attr_title ) .'"';
+        ! empty( $item->target )
+            and $attributes .= ' target="' . esc_attr( $item->target     ) .'"';
+        ! empty( $item->xfn )
+            and $attributes .= ' rel="'    . esc_attr( $item->xfn        ) .'"';
+        ! empty( $item->url )
+            and $attributes .= ' href="'   . esc_attr( $item->url        ) .'"';
+
+        // insert description for top level elements only
+        // you may change this
+        $description = ( ! empty ( $item->description ) and 0 == $depth )
+            ? '<div class="sub-menu-description">' . esc_attr( $item->description ) . '</div>' : '';
+        $image = ( has_post_thumbnail($item->ID) and 0 == $depth )
+            ? '<div class="sub-menu-image">' . get_the_post_thumbnail($item->ID) . '</div>' : '';
+        $title = apply_filters( 'the_title', $item->title, $item->ID );
+        
+        if($depth == 0){
+            $item_output = $args->before
+            . "<a $attributes>"
+            . $args->link_before
+            . $title
+            . '</a> '
+            . $args->link_after
+            . '<div class="sub-menu-wrap">'
+            . $description
+            . $args->after;
+        } else {
+            $item_output = $args->before
+            . "<a $attributes>"
+            . $args->link_before
+            . $title
+            . '</a> '
+            . $args->link_after
+            . $args->after;
+        }
+
+        // Since $output is called by reference we don't need to return anything.
+        $output .= apply_filters(
+            'walker_nav_menu_start_el'
+        ,   $item_output
+        ,   $item
+        ,   $depth
+        ,   $args
+        );
+    }
+/**
+     * Ends the element output, if needed.
+     *
+     * @see Walker::end_el()
+     *
+     * @since 3.0.0
+     *
+     * @param string $output Passed by reference. Used to append additional content.
+     * @param object $item   Page data object. Not used.
+     * @param int    $depth  Depth of page. Not Used.
+     * @param array  $args   An array of arguments. @see wp_nav_menu()
+     */
+    function end_el( &$output, $item, $depth = 0, $args = array() ) {
+        $output .= "</li>\n";
+    }
+}
+/**
+ * Footer replacement with MSDSocial support
+ */
+function msdlab_do_social_footer(){
+    global $msd_social;
+    //hook_test('genesis_entry_header');
+    if($msd_social){
+        $address = '<span itemprop="name">'.$msd_social->get_bizname().'</span> | <span itemprop="streetAddress">'.get_option('msdsocial_street').'</span>, <span itemprop="streetAddress">'.get_option('msdsocial_street2').'</span> | <span itemprop="addressLocality">'.get_option('msdsocial_city').'</span>, <span itemprop="addressRegion">'.get_option('msdsocial_state').'</span> <span itemprop="postalCode">'.get_option('msdsocial_zip').'</span> | '.$msd_social->get_digits();
+        $copyright .= '&copy; '.date('Y').' '.$msd_social->get_bizname().' | All Rights Reserved';
+        $social = $msd_social->social_media();
+    } else {
+        $copyright .= '&copy; '.date('Y').' '.get_bloginfo('name').' | All Rights Reserved';
+    }
+    
+    print '<div id="footer-info row"><div class="copyright col-md-6">'.$copyright.'</div><div class="social col-md-6">'.$social.'</div></div>';
 }
 
+
+/*** SITEMAP ***/
 function msdlab_sitemap(){
     $col1 = '
             <h4>'. __( 'Pages:', 'genesis' ) .'</h4>
             <ul>
-                '. msdlab_list_pages_for_sitemap( 'echo=0&title_li=' ) .'
+                '. wp_list_pages( 'echo=0&title_li=' ) .'
             </ul>
 
             <h4>'. __( 'Categories:', 'genesis' ) .'</h4>
