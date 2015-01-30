@@ -4,7 +4,7 @@
 $postid = is_admin()?$_GET['post']:$post->ID;
 $template_file = get_post_meta($postid,'_wp_page_template',TRUE);
   // check for a template type
-if (is_admin() && ($post->ID == get_option('page_on_front'))) { ?>
+if (is_admin() && ($template_file == 'front-page.php' || $template_file == 'landing-page.php' || $post->ID == get_option('page_on_front'))) { ?>
 <style>
     .landingpage_meta_control .table {display: block; width: 100%;}
     .landingpage_meta_control .row {display: block;cursor: move;border-bottom: 1px solid #333;}
@@ -90,5 +90,5 @@ jQuery(function($){
     $("#postdivrich").after($("#_landingpage_metabox")).hide();
 });</script>
 <?php } else {
-    print "Only for front page";
+    print "Select \"Landing Page\" template and save to activate.";
 } ?>

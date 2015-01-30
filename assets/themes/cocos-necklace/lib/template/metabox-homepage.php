@@ -4,7 +4,7 @@
 $postid = is_admin()?$_GET['post']:$post->ID;
 $template_file = get_post_meta($postid,'_wp_page_template',TRUE);
   // check for a template type
-if (is_admin() && $template_file == 'front-page.php') { ?>
+if (is_admin() && ($template_file == 'front-page.php' || $template_file == 'landing-page.php')) { ?>
 <style>
 #postdivrich{display: none;}
     .homepage_meta_control .table {display: block; width: 100%;}
@@ -121,5 +121,5 @@ jQuery(function($){
     $("#postdivrich").after($("#_homepage_metabox"));
 });</script>
 <?php } else {
-    print "Select \"Front Page\" template and save to activate.";
+    print "Select \"Landing Page\" template and save to activate.";
 } ?>
