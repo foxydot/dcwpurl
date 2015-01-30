@@ -37,7 +37,7 @@ function msdlab_bootstrap_content( $attributes ){
         case 'sidebar-content-sidebar':
             break;
         case 'full-width-content':
-            $attributes['class'] .= ' col-md-12';
+            $attributes['class'] .= '';
             break;
     }
     return $attributes;

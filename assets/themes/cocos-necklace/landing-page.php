@@ -1,12 +1,13 @@
 <?php
 /*
-Template Name: Front Page
+Template Name: Landing Page
 */
 //remove_all_actions('genesis_loop');
 //remove sidebars (jsut in case)
 //remove_all_actions('genesis_sidebar');
 //remove_all_actions('genesis_sidebar_alt');
 remove_action('genesis_entry_header', 'genesis_do_post_title');
+add_action('wp_enqueue_scripts','register_landingpage_scripts');
 
 /**
  * hero + 3 widgets
@@ -25,6 +26,6 @@ add_action('genesis_before_footer','genesis_footer_widget_areas');
 //remove_all_actions('genesis_loop');
 //add_action('genesis_loop','msd_scrollie_page');
 
-add_action('genesis_entry_content','msdlab_frontpage_tabs',30);
+add_action('genesis_entry_content','msdlab_landingpage_tabs',30);
 
 genesis();

@@ -332,6 +332,149 @@ class Description_Walker extends Walker_Nav_Menu
         $output .= "</li>\n";
     }
 }
+
+function register_landingpage_scripts(){
+    if(!is_admin()){
+        global $post;
+       $postid = $post->ID;
+       $template_file = get_post_meta($postid,'_wp_page_template',TRUE);
+      // check for a template type
+    if ($template_file == 'front-page.php' || $template_file == 'landing-page.php') { 
+            wp_enqueue_style('msd-landingpage-style',get_stylesheet_directory_uri().'/lib/css/landingpage.css',array('msd-style'));
+        }   
+    }
+}
+
+function msdlab_frontpage_tabs(){
+    global $allowedposttags,$landingpage_metabox;
+    $landingpage_metabox->the_meta();
+    $nav_tabs = $tab_content = array();
+    $i=1;
+    $allowedposttags['script'] = array('id'=>true,'src'=>true,'type'=>true);
+
+    $allowedposttags['hidden'] = array('id'=>true,'name'=>true,'value'=>true,'class'=>true);
+    $allowedposttags['select'] = array('id'=>true,'name'=>true,'value'=>true,'class'=>true,'selected'=>true);
+    $allowedposttags['option'] = array('id'=>true,'name'=>true,'value'=>true,'class'=>true);
+    $allowedposttags['input'] = array('id'=>true,'name'=>true,'value'=>true,'class'=>true);
+    $allowedposttags['submit'] = array('id'=>true,'name'=>true,'value'=>true,'class'=>true);
+    $allowedposttags['button'] = array('id'=>true,'name'=>true,'value'=>true,'class'=>true);
+    $nav_tabs = $tab_content = array();
+    $i=0;
+    remove_filter('the_content','wpautop',10);
+    while($landingpage_metabox->have_fields('sections')):
+        $tab_content[$i] = '
+        <div class="section '.$landingpage_metabox->get_the_value('class').'" id="'.sanitize_title(wp_strip_all_tags($landingpage_metabox->get_the_value('title'))).'">
+        <div class="wrap">
+        <h2 class="section-title">'.apply_filters('the_title',$landingpage_metabox->get_the_value('title')).'</h2>'
+        .apply_filters('the_content',$landingpage_metabox->get_the_value('content'))
+        .'</div>
+        </div>';
+        $i++;
+    endwhile; //end loop
+    add_filter('the_content','wpautop',10);
+    //global $wp_filter;
+    //ts_var( $wp_filter['the_content'] );
+    print '<!-- Tab panes -->
+        <div class="section-content">
+        '.implode("\n", $tab_content).'
+        </div>
+        '; 
+}
+
+
+function msdlab_landingpage_tabs(){
+    global $allowedposttags,$landingpage_metabox;
+    $landingpage_metabox->the_meta();
+    $nav_tabs = $tab_content = array();
+    $i=1;
+    $allowedposttags['script'] = array('id'=>true,'src'=>true,'type'=>true);
+
+    $allowedposttags['hidden'] = array('id'=>true,'name'=>true,'value'=>true,'class'=>true);
+    $allowedposttags['select'] = array('id'=>true,'name'=>true,'value'=>true,'class'=>true,'selected'=>true);
+    $allowedposttags['option'] = array('id'=>true,'name'=>true,'value'=>true,'class'=>true);
+    $allowedposttags['input'] = array('id'=>true,'name'=>true,'value'=>true,'class'=>true);
+    $allowedposttags['submit'] = array('id'=>true,'name'=>true,'value'=>true,'class'=>true);
+    $allowedposttags['button'] = array('id'=>true,'name'=>true,'value'=>true,'class'=>true);
+    $nav_tabs = $tab_content = array();
+    $i=0;
+    remove_filter('the_content','wpautop',10);
+    while($landingpage_metabox->have_fields('sections')):
+        $title = apply_filters('the_title',$landingpage_metabox->get_the_value('title'));
+        $wrapped_title = trim($title) != ''?'<div class="section-title">
+            <h3 class="wrap">
+                '.$title.'
+            </h3>
+        </div>':'';
+        $tab_content[$i] = '
+        <div class="section '.$landingpage_metabox->get_the_value('class').'" id="'.sanitize_title(wp_strip_all_tags($landingpage_metabox->get_the_value('title'))).'">
+        '.$wrapped_title.'
+        <div class="wrap row">'
+        .apply_filters('the_content',$landingpage_metabox->get_the_value('content'))
+        .'</div>
+        </div>';
+        $i++;
+    endwhile; //end loop
+    add_filter('the_content','wpautop',10);
+    //global $wp_filter;
+    //ts_var( $wp_filter['the_content'] );
+    print '<!-- Tab panes -->
+        <div class="section-content">
+        '.implode("\n", $tab_content).'
+        </div>
+        '; 
+}
+
+  function msdlab_landing_page_sections_output(){
+    global $allowedposttags,$landingpage_metabox;
+    $landingpage_metabox->the_meta();
+        $i = 1;
+        if(is_object($landingpage_metabox)){
+    $allowedposttags['script'] = array('id'=>true,'src'=>true,'type'=>true);
+
+    $allowedposttags['hidden'] = array('id'=>true,'name'=>true,'value'=>true,'class'=>true);
+    $allowedposttags['select'] = array('id'=>true,'name'=>true,'value'=>true,'class'=>true,'selected'=>true);
+    $allowedposttags['option'] = array('id'=>true,'name'=>true,'value'=>true,'class'=>true);
+    $allowedposttags['input'] = array('id'=>true,'name'=>true,'value'=>true,'class'=>true);
+    $allowedposttags['submit'] = array('id'=>true,'name'=>true,'value'=>true,'class'=>true);
+    $allowedposttags['button'] = array('id'=>true,'name'=>true,'value'=>true,'class'=>true);
+    remove_filter('the_content','wpautop',10);
+        while($landingpage_metabox->have_fields('sections')){
+            $eo = $i%2==1?'even':'odd';
+            $pull = $i%2==1?'left':'right';
+            $title = apply_filters('the_title',$landingpage_metabox->get_the_value('title'));
+            $wrapped_title = trim($title) != ''?'<div class="section-title">
+        <h3 class="wrap">
+            '.$title.'
+        </h3>
+    </div>':'';
+            $slug = sanitize_title_with_dashes(str_replace('/', '-', $landingpage_metabox->get_the_value('title')));
+            $content = apply_filters('the_content',$landingpage_metabox->get_the_value('content'));
+            $image = $landingpage_metabox->get_the_value('image') !=''?'<img src="'.$landingpage_metabox->get_the_value('image').'" class="pull-'.$pull.'">':'';
+            $nav_ids[] = $slug;
+            $nav[] = '';
+            $billboard_nav[] = '<a id="'.$slug.'_bb_nav" href="#'.$slug.'" class="nav-icon-'.$i.'"><div class="round-wrap"><i class="fa-3x adex-'.$slug.'"></i></div>'.str_replace(' ', '<br>', $title).'</a>';
+            $floating_nav[] = '<a id="'.$slug.'_fl_nav" href="#'.$slug.'"><i class="fa-3x adex-'.$slug.'"></i>'.str_replace(' ', '<br>', $title).'</a>';
+            $sections[] = '
+<div id="'.$slug.'" class="section section-'.$eo.' section-'.$slug.' clearfix">
+    '.$wrapped_title.'
+    <div class="section-body">
+        <div class="wrap">
+            '.$image.'
+            '.$subtitle.'
+            '.$content.'
+        </div>
+    </div>
+</div>
+';
+            $i++;
+        }//close while
+    add_filter('the_content','wpautop',10);
+
+        print implode("\n",$sections);
+        
+        }//clsoe if
+    }
+
 /**
  * Footer replacement with MSDSocial support
  */
