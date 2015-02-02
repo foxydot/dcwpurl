@@ -44,20 +44,23 @@ input[type="submit"],
 .button,
 .entry-content .button {
   background-color: @orange;
-  background-image: none; 
+  background-image: url(../img/bkg-btn-2.png);
+  background-size: auto;
+  background-position: center right;
   border-radius: 6px;
   color: #ffffff;
     font-family: "HelveticaNeueLTCom-BdCn";
     font-size: 35px;
     letter-spacing: 0;
     line-height: 34px;
-    padding: 16px 50px 10px 50px;
+    padding: 16px 70px 10px 50px;
     text-shadow: -1px -1px 0 rgba(247, 148, 29, 1);
     text-transform: uppercase;
     width: auto;
     border: 4px solid lighten(@orange, 10%);
     box-shadow: none;
 }
+
 button:hover,
 input:hover[type="button"],
 input:hover[type="reset"],
@@ -65,14 +68,16 @@ input:hover[type="submit"],
 .button:hover,
 .entry-content .button:hover {
   background-color: darken(@orange,10%);
-  background-image: none; 
+  background-image: url(../img/bkg-btn-2.png);
+  background-size: auto;
+  background-position: center right;
   border-radius: 6px;
   color: #ffffff;
     font-family: "HelveticaNeueLTCom-BdCn";
     font-size: 35px;
     letter-spacing: 0;
     line-height: 34px;
-    padding: 16px 50px 10px 50px;
+    padding: 16px 70px 10px 50px;
     text-shadow: -1px -1px 0 rgba(247, 148, 29, 1);
     text-transform: uppercase;
     width: auto;
@@ -277,7 +282,6 @@ input:hover[type="submit"],
       .gform_footer{
         clear: none;
         input{
-          background:@orange;
           font-size: 25px;
           letter-spacing: 0;
           line-height: 34px;
@@ -431,6 +435,7 @@ input:hover[type="submit"],
         img{
           margin: 0 !important;
           max-width: 120px;
+          max-height: 120px;
           background-color: @vltgrey;
         }
     }

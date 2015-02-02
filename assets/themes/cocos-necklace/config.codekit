@@ -1635,6 +1635,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/lib\/img\/bkg-btn-2.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 257,
+		"inputAbbreviatedPath": "\/lib\/img\/bkg-btn-2.png",
+		"outputAbbreviatedPath": "\/lib\/img\/bkg-btn-2.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/lib\/img\/bkg-pg-2.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -1708,6 +1719,28 @@
 		"initialSize": 766,
 		"inputAbbreviatedPath": "\/lib\/img\/blockquote.png",
 		"outputAbbreviatedPath": "\/lib\/img\/blockquote.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/lib\/img\/bubble.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3088,
+		"inputAbbreviatedPath": "\/lib\/img\/bubble.png",
+		"outputAbbreviatedPath": "\/lib\/img\/bubble.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/lib\/img\/caret-2.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1250,
+		"inputAbbreviatedPath": "\/lib\/img\/caret-2.png",
+		"outputAbbreviatedPath": "\/lib\/img\/caret-2.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -1818,6 +1851,17 @@
 		"initialSize": 152,
 		"inputAbbreviatedPath": "\/lib\/img\/icon-plus.png",
 		"outputAbbreviatedPath": "\/lib\/img\/icon-plus.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/lib\/img\/linedot.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1402,
+		"inputAbbreviatedPath": "\/lib\/img\/linedot.png",
+		"outputAbbreviatedPath": "\/lib\/img\/linedot.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
