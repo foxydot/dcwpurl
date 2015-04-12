@@ -15,14 +15,12 @@ jQuery(document).ready(function($) {
             console.log('desktop');
             //Do for laptop
             $('.section-content .section.first-child .slideshow').addClass('pull-left');
-            $('.section-content .section.even img').addClass('alignright');
-            $('.section-content .section.last-child img').addClass('alignleft');
+            $('#get-this-free-white-paper img,.brochure img').addClass('alignright');
         } else if($( window ).width() <= 769){
             console.log('tablet');
             //do for portrait tablet
             $('.section-content .section.first-child .slideshow').removeClass('pull-left');
-            $('.section-content .section.even img').removeClass('alignright');
-            $('.section-content .section.last-child img').removeClass('alignleft');
+            $('#get-this-free-white-paper img,.brochure img').removeClass('alignright');
             
             
         } else if($( window ).width() <= 480){
@@ -37,4 +35,5 @@ jQuery(document).ready(function($) {
     $( window ).resize(function() {
         device();
     });
+    
 });

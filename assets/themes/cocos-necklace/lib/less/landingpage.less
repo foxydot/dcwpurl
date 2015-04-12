@@ -329,7 +329,7 @@ input:hover[type="submit"],
           input, select{
             border: 1px solid @ltblue;
             background-color: transparent;
-            color: #494949;
+            color: @ltgrey;
             font-family: "Source Sans Pro",sans-serif;
             font-size: 13px;
             padding: 0.8rem !important;
@@ -348,16 +348,6 @@ input:hover[type="submit"],
               margin-right: 0 !important;
             }
           }
-            #input_2_4_4_container{
-              width: 97% !important;
-              border-right: 1px solid @ltblue;
-            select{
-              margin-left: 0 !important;
-              margin-right: 0 !important;
-              width: 110% !important;
-              color: #999;
-            }
-            }
         }
       }
       .gform_footer{
@@ -443,14 +433,17 @@ input:hover[type="submit"],
 }
 
 @media only screen and (max-width: 769px) {
-  
+  .wrap{
+    margin-right: 15px;
+    margin-left: 15px;
+  }
 .section-content{
   .section{
     padding-left: 15px;
     padding-right: 15px;
   }
   .section.first-child{
-    background: url("../images/banner-bg.jpg") repeat-y scroll center top @blue;
+    background-repeat: repeat-y;
     .section-title{
       margin: 20px auto 0;
       text-align: center;
@@ -464,19 +457,12 @@ input:hover[type="submit"],
     ul{
       margin-left: 0;
       text-transform: uppercase;
-      width: 98%;
+      width: 98% !important;
     }
   }
-  .section.even {
+  .section.content {
     .wrap{
       background: none;
-    }
-    .section-title {
-      color: #0998DB;
-      float: none;
-      text-align: center;
-      padding: 0;
-      width: 98%;
     }
     h3{
       text-align: center;
@@ -487,7 +473,7 @@ input:hover[type="submit"],
       margin: 10px auto;
     }
     ul{
-      width: 98%;
+      width: 98% !important;
     }
   }
   .section.last-child{
@@ -497,12 +483,24 @@ input:hover[type="submit"],
      }
      .gform_wrapper{
        background: none;
-       width: 98%;
+       width: 98% !important;
        margin: 0 auto;
        padding: 0;
      }
   }
+  .section.testimonials{
+  div.pull-left{
+    display: none;
+  }
+  .testimonial{
+    background-image: none;
+  }
 }
+.section.brochure .gform_wrapper {
+  width: 98%;
+}
+}
+
   
 }
 

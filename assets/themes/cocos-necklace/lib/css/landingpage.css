@@ -305,7 +305,7 @@ input:hover[type="submit"],
 .section-content .section.brochure .gform_wrapper ul li.gfield select {
   border: 1px solid #647592;
   background-color: transparent;
-  color: #494949;
+  color: #b8b7b9;
   font-family: "Source Sans Pro", sans-serif;
   font-size: 13px;
   padding: 0.8rem !important;
@@ -323,16 +323,6 @@ input:hover[type="submit"],
   width: 97% !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
-}
-.section-content .section.brochure .gform_wrapper ul .ginput_complex #input_2_4_4_container {
-  width: 97% !important;
-  border-right: 1px solid #647592;
-}
-.section-content .section.brochure .gform_wrapper ul .ginput_complex #input_2_4_4_container select {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  width: 110% !important;
-  color: #999;
 }
 .section-content .section.brochure .gform_wrapper .gform_footer {
   clear: none;
@@ -410,12 +400,16 @@ input:hover[type="submit"],
   background-color: #cccccc;
 }
 @media only screen and (max-width: 769px) {
+  .wrap {
+    margin-right: 15px;
+    margin-left: 15px;
+  }
   .section-content .section {
     padding-left: 15px;
     padding-right: 15px;
   }
   .section-content .section.first-child {
-    background: url("../images/banner-bg.jpg") repeat-y scroll center top #003966;
+    background-repeat: repeat-y;
   }
   .section-content .section.first-child .section-title {
     margin: 20px auto 0;
@@ -429,28 +423,21 @@ input:hover[type="submit"],
   .section-content .section.first-child ul {
     margin-left: 0;
     text-transform: uppercase;
-    width: 98%;
+    width: 98% !important;
   }
-  .section-content .section.even .wrap {
+  .section-content .section.content .wrap {
     background: none;
   }
-  .section-content .section.even .section-title {
-    color: #0998DB;
-    float: none;
-    text-align: center;
-    padding: 0;
-    width: 98%;
-  }
-  .section-content .section.even h3 {
+  .section-content .section.content h3 {
     text-align: center;
     margin-left: 0;
   }
-  .section-content .section.even img {
+  .section-content .section.content img {
     display: block;
     margin: 10px auto;
   }
-  .section-content .section.even ul {
-    width: 98%;
+  .section-content .section.content ul {
+    width: 98% !important;
   }
   .section-content .section.last-child img {
     display: block;
@@ -458,9 +445,18 @@ input:hover[type="submit"],
   }
   .section-content .section.last-child .gform_wrapper {
     background: none;
-    width: 98%;
+    width: 98% !important;
     margin: 0 auto;
     padding: 0;
+  }
+  .section-content .section.testimonials div.pull-left {
+    display: none;
+  }
+  .section-content .section.testimonials .testimonial {
+    background-image: none;
+  }
+  .section-content .section.brochure .gform_wrapper {
+    width: 98%;
   }
 }
 @media only screen and (max-width: 479px) {
