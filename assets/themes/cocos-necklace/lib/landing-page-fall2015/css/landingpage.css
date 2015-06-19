@@ -1,10 +1,10 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700);
 /* Import Fonts
 ------------------------------------------------------------ */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
 /* Font Stacks */
 .customsansserif,
 .customsanserif {
-  font-family: "News Cycle", "Trebuchet MS", Calibri, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 300;
   font-size: 16px;
   font-size: 1.6rem;
@@ -22,25 +22,33 @@
 .button a,
 .button a:hover,
 .button a:visited {
-  background: url("../../images/register-bg.png") no-repeat scroll left top;
-  background-size: contain;
-  background-color: #f88400;
-  border-radius: 3px;
+  font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 35px;
+  font-size: 3.5rem;
+  line-height: 1.625;
+  border: 2px solid #ffffff;
+  border-radius: 0.1em;
   margin: 12px auto;
   display: table;
-  color: #ffffff;
-  font-family: 'Roboto Condensed', sans-serif;
-  font-size: 35px;
+  color: #ffff00;
   letter-spacing: 0;
   line-height: 24px;
-  padding: 12px 77px 15px 38px;
-  text-shadow: -1px -1px 0 #f7941d;
   text-transform: uppercase;
   width: auto;
-  border: 0;
   box-shadow: none;
-  background-color: #c56900;
+  padding: 0.3em 1em;
   text-decoration: none;
+}
+.button:hover:after,
+.button:visited:after,
+.button a:after,
+.button a:hover:after,
+.button a:visited:after {
+  content: " \2192";
+  line-height: 0;
+  position: relative;
+  top: -4px;
 }
 /* Clears */
 .clearfix {
@@ -69,120 +77,228 @@
 .section-content .section.bkg-orange {
   background: #f88400;
 }
-.section-content .section.first-child {
-  font-family: 'Roboto Condensed', sans-serif;
+.section-content .section.chart-the-right-course {
+  background-image: url(../img/bkg-pg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  color: #ffffff;
+  padding: 2rem 0;
+}
+.section-content .section.chart-the-right-course .section-title {
+  text-align: center;
+  padding: 0 0 2rem 0;
+}
+.section-content .section.chart-the-right-course .section-title h3 {
   font-weight: 300;
+  color: #ffffff;
+  text-transform: uppercase;
   font-size: 18px;
   font-size: 1.8rem;
-  padding: 20px 0;
 }
-.section-content .section.first-child .wrap {
+.section-content .section.chart-the-right-course h3.left {
   position: relative;
-}
-.section-content .section.first-child h3 {
-  color: #1a1a1a;
-  font-family: 'Roboto Condensed', sans-serif;
+  top: 400px;
+  font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 300;
-  font-size: 30px;
-  letter-spacing: 0;
-  line-height: 34px;
-  margin-bottom: 0;
-  margin-top: 0;
-}
-.section-content .section.first-child .section-title h3 {
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 300;
-  font-size: 48px;
-  letter-spacing: -1px;
-  line-height: 40px;
-  text-align: left;
-  padding: 10px 0;
-}
-.section-content .section.first-child .slideshow {
-  margin-right: 4rem;
-}
-.section-content .section.first-child h4 {
-  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 32px;
+  font-size: 3.2rem;
+  line-height: 1.625;
+  color: white;
   font-weight: 700;
-  font-size: 12px;
-  letter-spacing: 1px;
-  line-height: 34px;
-  margin: 1rem 0;
-  text-align: left;
-  width: 100%;
-}
-.section-content .section.first-child h5 {
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 300;
-  font-size: 12px;
-  font-weight: normal;
-  margin: 1rem 0;
-  text-align: left;
-  width: 100%;
-}
-.section-content .section.first-child .register-below {
-  font-size: 24px;
-  position: absolute;
-  bottom: 10px;
-  right: 0;
-}
-.section-content .section.first-child .register-below:before,
-.section-content .section.first-child .register-below:after {
-  font-family: FontAwesome;
-  content: '\f063';
-  color: #ffffff;
-  background: #f88400;
-  border-radius: 6px;
-  padding: 0.6rem;
   text-align: center;
+  text-transform: uppercase;
   line-height: 1;
-  height: 30px;
-  width: 30px;
+  margin-left: 40px;
 }
-.section-content .section.first-child .register-below:before {
-  margin-right: 1rem;
+.section-content .section.chart-the-right-course h4,
+.section-content .section.chart-the-right-course h5 {
+  font-weight: 200;
+  font-size: 24px;
+  font-size: 2.4rem;
+  color: #ffffff;
 }
-.section-content .section.first-child .register-below:after {
-  margin-left: 1rem;
+.section-content .section.chart-the-right-course h5 {
+  font-size: 1.8rem;
+  text-align: center;
+  text-transform: uppercase;
 }
-.section-content .section.reg-form {
+.section-content .section.chart-the-right-course div.download {
+  text-align: center;
+  width: 60%;
+  margin: 0 auto;
+  background-color: rgba(95, 51, 0, 0.3);
+  border-radius: 0.3em;
+}
+.section-content .section.chart-the-right-course div.download img {
+  padding-top: 0.2em;
+}
+.section-content .section.chart-the-right-course ul {
+  margin: 0;
+  margin-bottom: 1em;
+}
+.section-content .section.chart-the-right-course ul li {
+  font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 34px;
+  font-size: 3.4rem;
+  line-height: 1.625;
+  list-style: none outside none;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+.section-content .section.chart-the-right-course ul li.last-child {
+  border: 0;
+}
+.section-content .section.content-header {
+  padding: 1em;
+  text-align: center;
+  font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 28px;
+  font-size: 2.8rem;
+  line-height: 1.625;
+}
+.section-content .section.content-header .section-title h3 {
+  font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 36px;
+  font-size: 3.6rem;
+  line-height: 1.625;
+  color: #f88400;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.section-content .section.content-header hr {
+  width: 10%;
+  border-width: 4px;
+}
+.section-content .section.hide-title .section-title {
+  display: none;
+}
+.section-content .section.news-item {
+  padding: 1em 0;
+}
+.section-content .section.news-item img {
+  border-radius: 4px;
+  box-shadow: 0 0 2px #d8d8da;
+}
+.section-content .section.news-item h3 {
+  font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 24px;
+  font-size: 2.4rem;
+  line-height: 1.625;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 0;
+}
+.section-content .section.news-item .meta-info {
+  font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-size: 1.2rem;
+  line-height: 1.625;
+  text-transform: uppercase;
+  font-weight: 300;
+  color: #636466;
+  margin: 1em 0;
+}
+.section-content .section.news-item .button-wrapper,
+.section-content .section.news-item .social-media {
+  float: left;
+  margin: 0 15px;
+}
+.section-content .section.news-item .button-wrapper .button,
+.section-content .section.news-item .social-media .button {
+  font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 35px;
+  font-size: 3.5rem;
+  line-height: 1.625;
+  border: 2px solid #f88400;
+  border-radius: 0.1em;
+  margin: 12px auto;
+  display: table;
+  color: #ffff00;
+  letter-spacing: 0;
+  line-height: 24px;
+  text-transform: uppercase;
+  width: auto;
+  box-shadow: none;
+  padding: 0.3em 1em;
+  color: #f88400;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+.section-content .section.news-item .button-wrapper .button:after,
+.section-content .section.news-item .social-media .button:after {
+  content: " \2192";
+  line-height: 0;
+  position: relative;
+  top: -4px;
+}
+.section-content .section.news-item .social-media {
+  color: #636466;
+  padding: 1.8rem 0;
+  margin: 0;
+}
+.section-content .section.news-item .social-media li {
+  list-style: none outside none;
+  display: inline-block;
+  padding: 0 1rem;
+}
+.section-content .section.news-item .social-media li.first-child {
+  border-right: 1px solid #636466;
+}
+.section-content .section.full-details {
   padding-top: 30px;
   padding-top: 3rem;
+  background-image: url(../img/bkg-ftr.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
 }
-.section-content .section.reg-form h2 {
-  color: #0095da;
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 700;
-  font-size: 50px;
-  line-height: 50px;
-  margin-bottom: 7px;
-  margin-top: 7px;
-}
-.section-content .section.reg-form h3,
-.section-content .section.reg-form .section-title {
+.section-content .section.full-details h2 {
+  font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 36px;
+  font-size: 3.6rem;
+  line-height: 1.625;
   color: #f88400;
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 25px;
-  text-transform: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1;
 }
-.section-content .section.reg-form .section-title {
-  margin-bottom: 0;
+.section-content .section.full-details h3 {
+  text-align: center;
+  font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 22px;
+  font-size: 2.2rem;
+  line-height: 1.625;
 }
-.section-content .section.reg-form ol {
+.section-content .section.full-details .section-title {
+  text-align: center;
+  padding: 0 0 2rem 0;
+}
+.section-content .section.full-details .section-title h3 {
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-size: 1.8rem;
+}
+.section-content .section.full-details ol {
   margin: 0;
   counter-reset: li;
   padding-bottom: 2rem;
 }
-.section-content .section.reg-form ol li {
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 300;
+.section-content .section.full-details ol li {
   font-size: 18px;
   line-height: 1.2;
   list-style: none;
 }
-.section-content .section.reg-form ol li:before {
+.section-content .section.full-details ol li:before {
   font-weight: 700;
   color: #f88400;
   counter-increment: li;
@@ -190,54 +306,83 @@
   width: 1em;
   display: inline-block;
 }
-.section-content .section.reg-form .gform_wrapper {
-  background: url("../../images/form-bg.png") no-repeat scroll left top rgba(0, 0, 0, 0);
-  margin-left: 45%;
-  padding-left: 8%;
-  width: 48%;
+.section-content .section.full-details .gform_wrapper .ginput_complex .ginput_full input[type="text"],
+.section-content .section.full-details .gform_wrapper .ginput_complex .ginput_full input[type="url"],
+.section-content .section.full-details .gform_wrapper .ginput_complex .ginput_full input[type="email"],
+.section-content .section.full-details .gform_wrapper .ginput_complex .ginput_full input[type="tel"],
+.section-content .section.full-details .gform_wrapper .ginput_complex .ginput_full input[type="number"],
+.section-content .section.full-details .gform_wrapper .ginput_complex .ginput_full input[type="password"],
+.section-content .section.full-details .gform_wrapper .ginput_complex input[type="text"],
+.section-content .section.full-details .gform_wrapper .ginput_complex input[type="url"],
+.section-content .section.full-details .gform_wrapper .ginput_complex input[type="email"],
+.section-content .section.full-details .gform_wrapper .ginput_complex input[type="tel"],
+.section-content .section.full-details .gform_wrapper .ginput_complex input[type="number"],
+.section-content .section.full-details .gform_wrapper .ginput_complex input[type="password"],
+.section-content .section.full-details .gform_wrapper .ginput_complex select {
+  width: 99.2% !important;
 }
-.section-content .section.reg-form .gform_wrapper ul li.gfield {
+.section-content .section.full-details .gform_wrapper ul li.gfield {
   clear: none !important;
   background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
   border-bottom: 0 none;
+  margin: 4px 0;
 }
-.section-content .section.reg-form .gform_wrapper ul li.gfield input,
-.section-content .section.reg-form .gform_wrapper ul li.gfield select {
-  border: 1px solid #999999;
-  box-shadow: 2px 2px 0 #d0d0d0 inset;
-  color: #494949;
-  font-family: "Roboto Condensed", sans-serif;
+.section-content .section.full-details .gform_wrapper ul li.gfield input,
+.section-content .section.full-details .gform_wrapper ul li.gfield select {
+  border: 1px solid #d8d8da;
+  border-radius: 4px;
+  box-shadow: 2px 2px 0 #cccccc inset;
   font-size: 13px;
   padding: 0.8rem !important;
 }
-.section-content .section.reg-form .gform_wrapper ul .ginput_complex .ginput_left,
-.section-content .section.reg-form .gform_wrapper ul .ginput_complex .ginput_right {
+.section-content .section.full-details .gform_wrapper ul .ginput_complex .ginput_left,
+.section-content .section.full-details .gform_wrapper ul .ginput_complex .ginput_right {
   float: none;
   display: block;
   width: 100% !important;
+  margin: 0 !important;
 }
-.section-content .section.reg-form .gform_wrapper ul .ginput_complex .ginput_left input,
-.section-content .section.reg-form .gform_wrapper ul .ginput_complex .ginput_right input,
-.section-content .section.reg-form .gform_wrapper ul .ginput_complex .ginput_left select,
-.section-content .section.reg-form .gform_wrapper ul .ginput_complex .ginput_right select {
-  width: 97% !important;
+.section-content .section.full-details .gform_wrapper ul .ginput_complex .ginput_left input,
+.section-content .section.full-details .gform_wrapper ul .ginput_complex .ginput_right input,
+.section-content .section.full-details .gform_wrapper ul .ginput_complex .ginput_left select,
+.section-content .section.full-details .gform_wrapper ul .ginput_complex .ginput_right select {
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
-.section-content .section.reg-form .gform_wrapper ul .ginput_complex .ginput_left select,
-.section-content .section.reg-form .gform_wrapper ul .ginput_complex .ginput_right select {
+.section-content .section.full-details .gform_wrapper ul .ginput_complex .ginput_left select,
+.section-content .section.full-details .gform_wrapper ul .ginput_complex .ginput_right select {
   color: #999;
 }
-.section-content .section.reg-form .gform_wrapper .gform_footer {
+.section-content .section.full-details .gform_wrapper .gform_footer {
   clear: none;
 }
-.section-content .section.reg-form .gform_wrapper .gform_footer input {
-  background: url("../../img/bkg-btn.png") no-repeat scroll left top rgba(0, 0, 0, 0);
-  font-size: 25px;
+.section-content .section.full-details .gform_wrapper .gform_footer input {
+  font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 35px;
+  font-size: 3.5rem;
+  line-height: 1.625;
+  border: 2px solid #f88400;
+  border-radius: 0.1em;
+  margin: 12px auto;
+  display: table;
+  color: #ffff00;
   letter-spacing: 0;
-  margin-left: 0;
-  padding: 12px 97px 15px 38px;
-  text-shadow: -1px -1px 0 #f7941d;
+  line-height: 24px;
+  text-transform: uppercase;
+  width: auto;
+  box-shadow: none;
+  padding: 0.3em 1em;
+  color: #f88400;
+  font-size: 1.8rem;
+  font-weight: 600;
+  background: 0;
+}
+.section-content .section.full-details .gform_wrapper .gform_footer input:after {
+  content: " \2192";
+  line-height: 0;
+  position: relative;
+  top: -4px;
 }
 .section-content .section.footer-section {
   padding: 2rem 0;
