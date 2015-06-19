@@ -4,7 +4,7 @@
  */
 add_image_size('tiny-post-thumb', 45, 45, TRUE);
 add_image_size( 'post-image', 540, 150, TRUE ); //image to float at the top of the post. Reversed Out does these a lot.
-
+add_image_size( 'landing-page-fall2015',453, 313, TRUE);
 /* Display a custom favicon */
 add_filter( 'genesis_pre_load_favicon', 'msdlab_favicon_filter' );
 function msdlab_favicon_filter( $favicon_url ) {
