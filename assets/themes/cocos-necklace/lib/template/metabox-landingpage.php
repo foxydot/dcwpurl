@@ -40,7 +40,7 @@ if (is_admin() && ($template_file == 'front-page.php' || stristr($template_file,
  <p id="warning" style="display: none;background:lightYellow;border:1px solid #E6DB55;padding:5px;">Order has changed. Please click Save or Update to preserve order.</p>
     <div class="table">
     <?php $i = 0; ?>
-    <?php while($mb->have_fields_and_multi('sections',array('limit' => 6))): ?>
+    <?php while($mb->have_fields_and_multi('sections',array('limit' => 10))): ?>
     <?php $mb->the_group_open(); ?>
     <div class="row <?php print $i%2==0?'even':'odd'; ?>">
         <div class="cell">

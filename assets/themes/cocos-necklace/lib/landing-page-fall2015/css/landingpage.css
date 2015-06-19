@@ -1,0 +1,311 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700);
+/* Import Fonts
+------------------------------------------------------------ */
+/* Font Stacks */
+.customsansserif,
+.customsanserif {
+  font-family: "News Cycle", "Trebuchet MS", Calibri, sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  font-size: 1.6rem;
+  line-height: 1.625;
+}
+.fontawesome {
+  font-family: FontAwesome;
+}
+/* Colors */
+/* Neutrals */
+/* Gradients */
+/* Buttons */
+.button:hover,
+.button:visited,
+.button a,
+.button a:hover,
+.button a:visited {
+  background: url("../../images/register-bg.png") no-repeat scroll left top;
+  background-size: contain;
+  background-color: #f88400;
+  border-radius: 3px;
+  margin: 12px auto;
+  display: table;
+  color: #ffffff;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 35px;
+  letter-spacing: 0;
+  line-height: 24px;
+  padding: 12px 77px 15px 38px;
+  text-shadow: -1px -1px 0 #f7941d;
+  text-transform: uppercase;
+  width: auto;
+  border: 0;
+  box-shadow: none;
+  background-color: #c56900;
+  text-decoration: none;
+}
+/* Clears */
+.clearfix {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.container,
+.row,
+.panel-body {
+  height: auto;
+  visibility: visible;
+}
+.modal-dialog {
+  left: auto;
+}
+.section-content .section {
+  clear: both;
+  float: none;
+}
+.section-content .section.bkg-white {
+  background: #ffffff;
+}
+.section-content .section.bkg-orange {
+  background: #f88400;
+}
+.section-content .section.first-child {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  font-size: 1.8rem;
+  padding: 20px 0;
+}
+.section-content .section.first-child .wrap {
+  position: relative;
+}
+.section-content .section.first-child h3 {
+  color: #1a1a1a;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 300;
+  font-size: 30px;
+  letter-spacing: 0;
+  line-height: 34px;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+.section-content .section.first-child .section-title h3 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 300;
+  font-size: 48px;
+  letter-spacing: -1px;
+  line-height: 40px;
+  text-align: left;
+  padding: 10px 0;
+}
+.section-content .section.first-child .slideshow {
+  margin-right: 4rem;
+}
+.section-content .section.first-child h4 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1px;
+  line-height: 34px;
+  margin: 1rem 0;
+  text-align: left;
+  width: 100%;
+}
+.section-content .section.first-child h5 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+  font-weight: normal;
+  margin: 1rem 0;
+  text-align: left;
+  width: 100%;
+}
+.section-content .section.first-child .register-below {
+  font-size: 24px;
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+}
+.section-content .section.first-child .register-below:before,
+.section-content .section.first-child .register-below:after {
+  font-family: FontAwesome;
+  content: '\f063';
+  color: #ffffff;
+  background: #f88400;
+  border-radius: 6px;
+  padding: 0.6rem;
+  text-align: center;
+  line-height: 1;
+  height: 30px;
+  width: 30px;
+}
+.section-content .section.first-child .register-below:before {
+  margin-right: 1rem;
+}
+.section-content .section.first-child .register-below:after {
+  margin-left: 1rem;
+}
+.section-content .section.reg-form {
+  padding-top: 30px;
+  padding-top: 3rem;
+}
+.section-content .section.reg-form h2 {
+  color: #0095da;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 50px;
+  margin-bottom: 7px;
+  margin-top: 7px;
+}
+.section-content .section.reg-form h3,
+.section-content .section.reg-form .section-title {
+  color: #f88400;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 25px;
+  text-transform: none;
+}
+.section-content .section.reg-form .section-title {
+  margin-bottom: 0;
+}
+.section-content .section.reg-form ol {
+  margin: 0;
+  counter-reset: li;
+  padding-bottom: 2rem;
+}
+.section-content .section.reg-form ol li {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 1.2;
+  list-style: none;
+}
+.section-content .section.reg-form ol li:before {
+  font-weight: 700;
+  color: #f88400;
+  counter-increment: li;
+  content: counter(li);
+  width: 1em;
+  display: inline-block;
+}
+.section-content .section.reg-form .gform_wrapper {
+  background: url("../../images/form-bg.png") no-repeat scroll left top rgba(0, 0, 0, 0);
+  margin-left: 45%;
+  padding-left: 8%;
+  width: 48%;
+}
+.section-content .section.reg-form .gform_wrapper ul li.gfield {
+  clear: none !important;
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+  border-bottom: 0 none;
+}
+.section-content .section.reg-form .gform_wrapper ul li.gfield input,
+.section-content .section.reg-form .gform_wrapper ul li.gfield select {
+  border: 1px solid #999999;
+  box-shadow: 2px 2px 0 #d0d0d0 inset;
+  color: #494949;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 13px;
+  padding: 0.8rem !important;
+}
+.section-content .section.reg-form .gform_wrapper ul .ginput_complex .ginput_left,
+.section-content .section.reg-form .gform_wrapper ul .ginput_complex .ginput_right {
+  float: none;
+  display: block;
+  width: 100% !important;
+}
+.section-content .section.reg-form .gform_wrapper ul .ginput_complex .ginput_left input,
+.section-content .section.reg-form .gform_wrapper ul .ginput_complex .ginput_right input,
+.section-content .section.reg-form .gform_wrapper ul .ginput_complex .ginput_left select,
+.section-content .section.reg-form .gform_wrapper ul .ginput_complex .ginput_right select {
+  width: 97% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+.section-content .section.reg-form .gform_wrapper ul .ginput_complex .ginput_left select,
+.section-content .section.reg-form .gform_wrapper ul .ginput_complex .ginput_right select {
+  color: #999;
+}
+.section-content .section.reg-form .gform_wrapper .gform_footer {
+  clear: none;
+}
+.section-content .section.reg-form .gform_wrapper .gform_footer input {
+  background: url("../../img/bkg-btn.png") no-repeat scroll left top rgba(0, 0, 0, 0);
+  font-size: 25px;
+  letter-spacing: 0;
+  margin-left: 0;
+  padding: 12px 97px 15px 38px;
+  text-shadow: -1px -1px 0 #f7941d;
+}
+.section-content .section.footer-section {
+  padding: 2rem 0;
+  font-size: 1.2rem;
+}
+.section-content .section.footer-section .section-title h3 {
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+}
+.section-content .section.footer-section h5 {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+@media only screen and (max-width: 769px) {
+  .section-content .section {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .section-content .section.first-child {
+    background: url("../../images/banner-bg.jpg") repeat-y scroll center top #2094d8;
+  }
+  .section-content .section.first-child .section-title {
+    margin: 20px auto 0;
+    text-align: center;
+    width: 100%;
+  }
+  .section-content .section.first-child .slideshow {
+    margin: 20px auto;
+    width: 540px;
+  }
+  .section-content .section.first-child ul {
+    margin-left: 0;
+    width: 98%;
+  }
+  .section-content .section.even .wrap {
+    background: none;
+  }
+  .section-content .section.even .section-title {
+    color: #0998DB;
+    float: none;
+    text-align: center;
+    padding: 0;
+    width: 98%;
+  }
+  .section-content .section.even h3 {
+    text-align: center;
+    margin-left: 0;
+  }
+  .section-content .section.even img {
+    display: block;
+    margin: 10px auto;
+  }
+  .section-content .section.even ul {
+    width: 98%;
+  }
+  .section-content .section.last-child img {
+    display: block;
+    margin: 10px auto;
+  }
+  .section-content .section.last-child .gform_wrapper {
+    background: none;
+    width: 98%;
+    margin: 0 auto;
+    padding: 0;
+  }
+}
+@media only screen and (max-width: 479px) {
+  .section-content .section.first-child .slideshow {
+    display: none;
+  }
+}
