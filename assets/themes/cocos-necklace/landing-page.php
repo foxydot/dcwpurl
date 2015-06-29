@@ -2,7 +2,7 @@
 /*
 Template Name: Landing Page
 */
-$lpc = "landing-page";
+$lpc = "original-landing-page";
 remove_action('wp_enqueue_scripts', 'msdlab_add_styles');
 add_action('wp_enqueue_scripts', 'original_add_styles');
 //remove_all_actions('genesis_loop');
