@@ -1,10 +1,23 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+@import url(http://fonts.googleapis.com/css?family=News+Cycle:400,700);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
 /* Import Fonts
 ------------------------------------------------------------ */
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@font-face {
+  font-family: 'HelveticaNeueLTCom-BdCn';
+  src: url('../fonts/HelveticaNeueLTCom-BdCn.eot?#iefix') format('embedded-opentype'), url('../fonts/HelveticaNeueLTCom-BdCn.woff') format('woff'), url('../fonts/HelveticaNeueLTCom-BdCn.ttf') format('truetype'), url('../fonts/HelveticaNeueLTCom-BdCn.svg#HelveticaNeueLTCom-BdCn') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'HelveticaNeueLTStd47LightCondensed';
+  src: url('../fonts/helveticaneueltstd-ltcn.eot');
+  src: url('../fonts/helveticaneueltstd-ltcn.eot') format('embedded-opentype'), url('../fonts/helveticaneueltstd-ltcn.woff2') format('woff2'), url('../fonts/helveticaneueltstd-ltcn.woff') format('woff'), url('../fonts/helveticaneueltstd-ltcn.ttf') format('truetype'), url('../fonts/helveticaneueltstd-ltcn.svg#HelveticaNeueLTStd47LightCondensed') format('svg');
+}
 /* Font Stacks */
 .customsansserif,
 .customsanserif {
-  font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "News Cycle", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 300;
   font-size: 16px;
   font-size: 1.6rem;
@@ -22,33 +35,25 @@
 .button a,
 .button a:hover,
 .button a:visited {
-  font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 300;
-  font-size: 35px;
-  font-size: 3.5rem;
-  line-height: 1.625;
-  border: 2px solid #ffffff;
-  border-radius: 0.1em;
+  background: url("../images/register-bg.png") no-repeat scroll left top;
+  background-size: contain;
+  background-color: #ee7b29;
+  border-radius: 3px;
   margin: 12px auto;
   display: table;
-  color: #ffff00;
+  color: #ffffff;
+  font-family: "HelveticaNeueLTCom-BdCn";
+  font-size: 35px;
   letter-spacing: 0;
-  line-height: 24px;
+  line-height: 34px;
+  padding: 16px 77px 10px 38px;
+  text-shadow: -1px -1px 0 #f7941d;
   text-transform: uppercase;
   width: auto;
+  border: 0;
   box-shadow: none;
-  padding: 0.3em 1em;
+  background-color: #d36211;
   text-decoration: none;
-}
-.button:hover:after,
-.button:visited:after,
-.button a:after,
-.button a:hover:after,
-.button a:visited:after {
-  content: " \2192";
-  line-height: 0;
-  position: relative;
-  top: -4px;
 }
 /* Clears */
 .clearfix {

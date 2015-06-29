@@ -48,13 +48,8 @@ function orange_add_styles() {
             $queue[] = 'font-awesome-style';
         wp_enqueue_style('msd-style',get_stylesheet_directory_uri().'/lib/'.$lpc.'/css/style.css',$queue);
         $queue[] = 'msd-style';
-        if(is_front_page()){
-            wp_enqueue_style('msd-homepage-style',get_stylesheet_directory_uri().'/lib/'.$lpc.'/css/homepage.css',$queue);
-            $queue[] = 'msd-homepage-style';
-        } else {
             wp_enqueue_style('msd-landingpage',get_stylesheet_directory_uri().'/lib/'.$lpc.'/css/landingpage.css',$queue);
             $queue[] = 'msd-landingpage';
-        }
         if($is_IE){
             wp_enqueue_style('ie-style',get_stylesheet_directory_uri().'/lib/'.$lpc.'/css/ie.css',$queue);
             $queue[] = 'ie-style';
