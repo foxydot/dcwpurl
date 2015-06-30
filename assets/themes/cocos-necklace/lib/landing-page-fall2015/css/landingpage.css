@@ -401,52 +401,19 @@
     padding-left: 15px;
     padding-right: 15px;
   }
-  .section-content .section.first-child {
-    background: url("../../images/banner-bg.jpg") repeat-y scroll center top #2094d8;
-  }
-  .section-content .section.first-child .section-title {
-    margin: 20px auto 0;
-    text-align: center;
-    width: 100%;
-  }
-  .section-content .section.first-child .slideshow {
-    margin: 20px auto;
-    width: 540px;
-  }
-  .section-content .section.first-child ul {
+  .section-content .section.chart-the-right-course h3.left {
     margin-left: 0;
-    width: 98%;
+    top: 0;
   }
-  .section-content .section.even .wrap {
-    background: none;
+  .section-content .section.chart-the-right-course ul li {
+    margin: 0 15px;
+    font-size: 1.5em;
   }
-  .section-content .section.even .section-title {
-    color: #0998DB;
-    float: none;
-    text-align: center;
-    padding: 0;
-    width: 98%;
+  .section-content .section.chart-the-right-course .button {
+    font-size: 1.5em;
   }
-  .section-content .section.even h3 {
-    text-align: center;
-    margin-left: 0;
-  }
-  .section-content .section.even img {
-    display: block;
-    margin: 10px auto;
-  }
-  .section-content .section.even ul {
-    width: 98%;
-  }
-  .section-content .section.last-child img {
-    display: block;
-    margin: 10px auto;
-  }
-  .section-content .section.last-child .gform_wrapper {
-    background: none;
-    width: 98%;
-    margin: 0 auto;
-    padding: 0;
+  .section-content .section.chart-the-right-course .download img {
+    max-width: 30px;
   }
 }
 @media only screen and (max-width: 479px) {
