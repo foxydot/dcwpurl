@@ -10,7 +10,7 @@ function jig_add_force_rss($feed,$url){
         
         // Get RSS Feed(s)
         include_once( ABSPATH . WPINC . '/feed.php' );
-        add_filter( 'wp_feed_cache_transient_lifetime', create_function( '$a','return 100;' ) ); 
+        add_filter( 'wp_feed_cache_transient_lifetime', create_function( '$a','return 14400;' ) ); //4 hours
         
         // Get a SimplePie feed object from the specified feed source.
         add_action('wp_feed_options', 'jig_add_force_rss', 10,2);
