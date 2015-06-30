@@ -1,6 +1,8 @@
 <?php
 add_shortcode('feed','msdlab_feed_to_landingpage');
-
+function jig_add_force_rss($feed,$url){
+    $feed->enable_order_by_date(false);
+}
     function msdlab_feed_to_landingpage($atts){
         extract( shortcode_atts( array(
             'url' => 'http://www.datacenterknowledge.com/?feed=dcw',
@@ -8,9 +10,12 @@ add_shortcode('feed','msdlab_feed_to_landingpage');
         
         // Get RSS Feed(s)
         include_once( ABSPATH . WPINC . '/feed.php' );
-
+        add_filter( 'wp_feed_cache_transient_lifetime', create_function( '$a','return 100;' ) ); 
+        
         // Get a SimplePie feed object from the specified feed source.
+        add_action('wp_feed_options', 'jig_add_force_rss', 10,2);
         $rss = fetch_feed($url);
+        remove_action('wp_feed_options','jig_add_force_rss', 10);
 
         $maxitems = FALSE;
 
